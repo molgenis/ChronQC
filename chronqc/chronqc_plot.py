@@ -161,9 +161,8 @@ def percentage_of_samples_above_threshold(df, column, depth):
     Get %  of samples greater than the depth median threshold
     """
     df[column] = pd.to_numeric(df[column], errors='coerce').round(2)
-    df_dep_val = df.groupby(['Run', 'Date'], as_index=False)[column].apply(lambda c: ((c > float(depth)).sum()/float(len(c)))*100).reset_index()
     name = '% Samples greater than {0}'.format(depth)
-    df_dep_val.rename(columns={0: name}, inplace=True)
+    df_dep_val = df.groupby(['Run', 'Date']).agg(**{name: (column, lambda c: ((c > float(depth)).sum() / float(len(c))) * 100)}).reset_index()
     df_dep_val[name] = df_dep_val[name].round(2)
     df_names = format_sample_names(df, column)
     df_dep = pd.merge(df_dep_val, df_names, left_on=['Run', 'Date'],
@@ -183,9 +182,9 @@ def rolling_mean(df_dup_all, Duplicates, win):
     """
     df_dup_all.sort_values(by=['Date'], inplace=True)
     df_dup_all.set_index('Date', inplace=True)
-    df_dup_all['mean'] = df_dup_all.rolling(win).mean().round(2)[Duplicates]
+    df_dup_all['mean'] = df_dup_all[Duplicates].rolling(win).mean().round(2)
     # closed = 'left'
-    df_dup_all['2std'] = df_dup_all.rolling(win).std().round(2)[Duplicates]
+    df_dup_all['2std'] = df_dup_all[Duplicates].rolling(win).std().round(2)
     df_dup_all['posstd'] = df_dup_all['mean'] + df_dup_all['2std']
     df_dup_all['negstd'] = df_dup_all['mean'] - df_dup_all['2std']
     df_dup_all['posstd'] = df_dup_all['posstd'].round(2)
