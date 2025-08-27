@@ -1,4 +1,3 @@
-## test
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/molgenis/ChronQC/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/molgenis/ChronQC/tree/main)
 
 
