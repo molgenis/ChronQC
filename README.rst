@@ -1,3 +1,5 @@
+##test-test
+
 .. image:: https://github.com/nilesh-tawari/ChronQC/blob/master/docs/_static/ChronQC_logo.png
 	:target: https://github.com/nilesh-tawari/ChronQC
 
@@ -6,7 +8,7 @@
 
 .. image:: https://readthedocs.org/projects/chronqc/badge/?version=latest
         :target: http://chronqc.readthedocs.io/en/latest/?badge=latest
-        
+
 A Quality Control Monitoring System for Clinical Next Generation Sequencing
 ===========================================================================
 
@@ -41,10 +43,10 @@ Examples
 
 ChronQC plots can be generated from,
 
-1. A custom SQLite database. 
+1. A custom SQLite database.
 	* For examples see, `examples/custom_db_example <https://github.com/nilesh-tawari/ChronQC/tree/master/examples/custom_db_example>`_.
 
-2. The output of `MultiQC <https://github.com/ewels/MultiQC>`__. 
+2. The output of `MultiQC <https://github.com/ewels/MultiQC>`__.
 	* For example on creating the ChronQC database and plots see, `examples/multiqc_example_1 <https://github.com/nilesh-tawari/ChronQC/tree/master/examples/multiqc_example_1>`_.
 	* For example on creating, updating the ChronQC database and plots see, `examples/multiqc_example_2 <https://github.com/nilesh-tawari/ChronQC/tree/master/examples/multiqc_example_2>`_.
 
@@ -95,23 +97,23 @@ Alternatively, ChronQC can also be used as `Docker <https://hub.docker.com/r/nil
 
   #Pull docker image
   docker pull nileshtawari/chronqc:chronqc_1.0.4
-  
+
   #Run docker
   docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix nileshtawari/chronqc:chronqc_1.0.4
-     
+
   #Test ChronQC using example data
   cd /home/ChronQC
 ..
 
 Then follow instructions given in `getting started <http://chronqc.readthedocs.io/en/latest/run_chronqc.html#generating-chronqc-plots>`__.
-  
+
 .. code-block:: shell
- 
-  #(optional)Run docker with mounted folder  
+
+  #(optional)Run docker with mounted folder
   docker run -it --rm -e DISPLAY=$DISPLAY -u $(id -u) -v /tmp/.X11-unix:/tmp/.X11-unix -v /your_local_home_directory/your_data_directory:/data2 nileshtawari/chronqc:chronqc_1.0.4
 ..
-    
- 
+
+
 
 Automation
 ==========
