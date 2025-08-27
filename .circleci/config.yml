@@ -5,7 +5,7 @@
 #
 version: 2.1
 orbs:
-  python: circleci/python@2.0.3
+  python: circleci/python@3.0.0
 jobs:
   build_and_test:
     docker:
@@ -21,5 +21,9 @@ jobs:
       - run:
           name: Run setup.py
           command: python setup.py test
+workflows:
+  build_and_deploy:
+    jobs:
+      - build_and_test
 ...
 
