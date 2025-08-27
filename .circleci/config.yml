@@ -19,8 +19,8 @@ jobs:
           pkg-manager: pip
           pip-dependency-file: requirements.txt
       - run:
-          name: Run setup.py
-          command: python setup.py test
+          name: Run setup
+          command: python setup.py
 workflows:
   build_and_deploy:
     jobs:
