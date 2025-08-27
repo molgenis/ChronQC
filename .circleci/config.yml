@@ -17,9 +17,7 @@ jobs:
       - checkout # checkout source code
       - python/install-packages:
           pkg-manager: pip
-      - run:
-          name: install requierments
-          command: pip install -r requirements.txt
+          pip-dependency-file: requirements.txt
       - run:
           name: Run setup.py
           command: python setup.py test
