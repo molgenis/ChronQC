@@ -1,0 +1,27 @@
+---
+#
+# Python CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-python/ for more details.
+#
+version: 2.1
+orbs:
+  python: circleci/python@2.0.3
+jobs:
+  build_and_test:
+    docker:
+      - image: cimg/python:3.10
+    executor: python/default
+    working_directory: ~/repo
+    resource_class: small
+    steps:
+      - checkout # checkout source code
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: install requierments
+          command: pip install -r requirements.txt
+      - run:
+          name: Run setup.py
+          command: python setup.py test
+...
+
