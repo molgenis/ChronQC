@@ -20,7 +20,7 @@ jobs:
           pip-dependency-file: requirements.txt
       - run:
           name: Run test
-          command: python setup.py cmd --help
+          command: python setup.py install
 workflows:
   build_and_deploy:
     jobs:
