@@ -60,8 +60,6 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ],
-    test_suite='tests',
-    tests_require=test_requirements,
     package_data={
         'chronqc': [
             'templates/*.*',
