@@ -1,8 +1,5 @@
 """A setuptools based setup module for chronqc"""
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-from codecs import open
 from os import path
 from setuptools import setup, find_packages
 import versioneer
@@ -16,7 +13,10 @@ with open(path.join(here, 'HISTORY.rst'), encoding='utf-8') as history_file:
     history = history_file.read().replace('.. :changelog:', '')
 
 requirements = [
-     'numpy', 'pandas>=0.20.2', 'matplotlib', 'bottle'
+    'numpy',
+    'pandas>=0.20.2',
+    'matplotlib',
+    'bottle'
 ]
 
 test_requirements = [
@@ -29,6 +29,7 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     description="A Quality Control Monitoring System for Clinical Next Generation Sequencing",
     long_description=readme + '\n\n' + history,
+    long_description_content_type='text/x-rst',
     author="Nilesh R. Tawari",
     author_email='tawari.nilesh@gmail.com',
     url='https://github.com/nilesh-tawari/ChronQC',
@@ -36,8 +37,8 @@ setup(
     entry_points={
         'console_scripts': [
             'chronqc=chronqc.chronqc:main',
-            ],
-        },
+        ],
+    },
     include_package_data=True,
     install_requires=requirements,
     license="MIT",
@@ -45,7 +46,6 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
@@ -54,19 +54,26 @@ setup(
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Visualization',
         'Programming Language :: JavaScript',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
-    test_suite='tests',
-    tests_require=test_requirements,
-    package_data={'chronqc': ['templates/*.*', 'config/*.*',
-                              'README.rst', 'versioneer.py',
-                              'LICENSE', 'tox.ini', 'chronqc/_version.py',
-                              'chronqc/db/*']}
+    package_data={
+        'chronqc': [
+            'templates/*.*',
+            'config/*.*',
+            'README.rst',
+            'versioneer.py',
+            'LICENSE',
+            'tox.ini',
+            'chronqc/_version.py',
+            'chronqc/db/*'
+        ],
+    },
 )
+
 print("""
 --------------------------------
  ChronQC installation complete!
